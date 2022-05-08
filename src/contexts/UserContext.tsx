@@ -6,7 +6,7 @@ interface UserType {
 }
 
 interface UserContextState {
-  userData: any;
+  userData: UserType;
   toogleTheme: () => void;
 }
 
