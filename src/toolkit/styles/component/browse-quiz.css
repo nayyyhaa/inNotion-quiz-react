@@ -33,10 +33,15 @@
   transform: scale(1.02);
 }
 
-.quiz-category-btn i {
+.quiz-category-btn,
+.card-btns a {
+  justify-content: start;
+}
+
+.quiz-category-btn svg {
   transition: all 0.3s ease-in-out;
 }
 
-.quiz-category-item:hover .quiz-category-btn i {
+.quiz-category-item:hover .quiz-category-btn svg {
   margin-left: 1rem;
 }
