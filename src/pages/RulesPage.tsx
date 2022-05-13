@@ -10,7 +10,7 @@ export const RulesPage = () => {
 
   return (
     <main className="form-content full-wd grid-ctr m-auto p-v-5">
-      <h2 className="title colored-text h1 m-v-2">
+      <h2 className="title centered-text colored-text h1 m-v-2">
         <span className="circle"></span>
         {currentQuiz?.title}
       </h2>
