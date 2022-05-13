@@ -1,6 +1,8 @@
 import meditation from "toolkit/assets/meditation.svg";
 import fly from "toolkit/assets/fly.svg";
 import stability from "toolkit/assets/stability.svg";
+import yoga from "toolkit/assets/yoga.svg";
+import selfEsteem from "toolkit/assets/self-esteem.svg";
 import { QuizCardData, QuizDataCategory } from "models/models";
 import { v4 as uuid } from "uuid";
 
@@ -36,7 +38,7 @@ export const quizCategoryData: QuizDataCategory[] = [
 
 export const quizData: QuizCardData[] = [
   {
-    _id: uuid(),
+    _id: "mindfulness-quiz",
     img: meditation,
     title: "What is Mindfulness?",
     description:
@@ -81,11 +83,11 @@ export const quizData: QuizCardData[] = [
     ],
   },
   {
-    _id: uuid(),
-    img: meditation,
+    _id: "self-esteem-quiz",
+    img: selfEsteem,
     title: "Self Esteem Check",
     description:
-      "How much do you know about mindfulness? Test your knowledge of this practice that connects your body and mind.",
+      "This quiz can give you insight into the things that might affect your own self-esteem — so you can learn how to build and protect it.",
     category: "soulful",
     questions: [
       {
@@ -126,11 +128,11 @@ export const quizData: QuizCardData[] = [
     ],
   },
   {
-    _id: "mindfullnedfsdfss1",
-    img: meditation,
-    title: "Yoga",
+    _id: "yoga-quiz",
+    img: yoga,
+    title: "Are you true Yogi?",
     description:
-      "How much do you know about mindfulness? Test your knowledge of this practice that connects your body and mind.",
+      "Yoga is among the latest fitness crazes, but the practice has some major depth. Brush up on your knowledge of Yoga with this quiz!",
     category: "fitness",
     questions: [
       {

@@ -20,6 +20,11 @@
 
 .card-img {
   height: 30vh;
+  object-fit: fill;
+}
+
+.card-header-text {
+    padding: 2rem 2rem 0 2rem;
 }
 
 .games-grid {

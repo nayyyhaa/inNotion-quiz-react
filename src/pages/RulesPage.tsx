@@ -1,12 +1,18 @@
+import { useQuiz } from "contexts";
 import { Link, useParams } from "react-router-dom";
 
 export const RulesPage = () => {
+  const {
+    quizData: { quiz },
+  } = useQuiz();
   const { id } = useParams();
+  const currentQuiz = quiz.find(({ _id }) => _id === id);
+
   return (
     <main className="form-content full-wd grid-ctr m-auto p-v-5">
       <h2 className="title colored-text h1 m-v-2">
         <span className="circle"></span>
-        QuizName
+        {currentQuiz?.title}
       </h2>
       <div className="form-card w-40rm col-flex">
         <ul className="card left-text no-bullet row-flex text-wrap box-shd w-40rm p-h-2 p-v-4">
