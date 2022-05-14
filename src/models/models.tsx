@@ -10,9 +10,15 @@ export interface QuizDataCategory {
 
 export interface QuizCardData {
   _id: string;
-  link: string;
   img: string;
   title: string;
   description: string;
   category: string;
+  questions?: QuizQuestions[] | [];
+}
+
+export interface QuizQuestions {
+  question: string;
+  options: Array<string>;
+  answer: number;
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { BsCaretRightFill } from "react-icons/bs";
 
 export const QuizCard = ({ card }: any) => {
-  const { link, img, title, description, category } = card;
+  const { _id, img, title, description, category } = card;
   return (
     <div className="card vd-card left-text col-flex flex-start w-30rm m-2">
       <img className="card-img full-wd" src={img} alt={category} />
@@ -12,7 +12,7 @@ export const QuizCard = ({ card }: any) => {
       </div>
       <div className="card-actions p-2 row-flex full-wd">
         <div className="card-btns">
-          <Link to={link} className="btn primary-btn row-flex no-wrap m-r-1 w-40p">
+          <Link to={`/rules/${_id}`} className="btn primary-btn row-flex no-wrap m-r-1 w-40p">
             <BsCaretRightFill />
             <span className="p-l-1">Play</span>
           </Link>
