@@ -48,6 +48,7 @@ export const LoginForm = () => {
               className="input p-07"
               id="email"
               value={form.email}
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
               required
               onChange={(e) =>
                 setForm((prev) => ({
@@ -72,6 +73,7 @@ export const LoginForm = () => {
               className="input p-07"
               id="upassword"
               value={form.password}
+              pattern="^.{6,}$"
               required
               onChange={(e) =>
                 setForm((prev) => ({
@@ -87,7 +89,7 @@ export const LoginForm = () => {
               <i className="fa fa-check-circle-o" aria-hidden="true"></i>Valid field
             </small>
             <small className="form-validation-msg error-msg red-text">
-              <i className="fa fa-exclamation-circle" aria-hidden="true"></i>Please enter valid input
+              <i className="fa fa-exclamation-circle" aria-hidden="true"></i>Please enter password with length 6 or more
             </small>
           </div>
           <div className="field full-wd m-1">

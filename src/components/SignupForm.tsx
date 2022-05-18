@@ -94,6 +94,7 @@ export const SignupForm = () => {
             type="email"
             className="input p-07"
             id="email"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
             required
             onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
           />
@@ -111,6 +112,7 @@ export const SignupForm = () => {
           <input
             type={isPasswordVisible ? `text` : `password`}
             className="input p-07"
+            pattern="^.{6,}$"
             id="upassword"
             required
             onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))}
@@ -122,7 +124,7 @@ export const SignupForm = () => {
             <i className="fa fa-check-circle-o" aria-hidden="true"></i>Valid field
           </small>
           <small className="form-validation-msg error-msg red-text">
-            <i className="fa fa-exclamation-circle" aria-hidden="true"></i>Please enter valid input
+            <i className="fa fa-exclamation-circle" aria-hidden="true"></i>Please enter password with length 6 or more
           </small>
         </div>
         <button type="submit" className="btn primary-btn w-95p m-1">
