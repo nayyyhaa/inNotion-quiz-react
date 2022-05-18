@@ -26,8 +26,10 @@ const AuthProvider = ({ children }: any) => {
 
   const setAuthVal = (user?: any) => {
     if (user) setAuth({ token: user, isAuth: true });
-    else setAuth({ token: "", isAuth: false });
-    localStorage.setItem("token", JSON.stringify(authorization.token));
+    else {
+        setAuth({ token: "", isAuth: false });
+        localStorage.setItem("token", JSON.stringify(""));
+    }
   };
 
   return <AuthContext.Provider value={{ authorization, setAuthVal }}>{children}</AuthContext.Provider>;

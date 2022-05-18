@@ -1,8 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "config/firebase-config";
 import { toast } from "react-toastify";
+import GoogleButton from "react-google-button";
 
 export const SignupForm = () => {
   const [form, setForm] = useState({ email: "", password: "", firstName: "", lastName: "" });
@@ -12,6 +13,7 @@ export const SignupForm = () => {
   const navigate = useNavigate();
   const location: any = useLocation();
   const from = location?.state?.fromVal?.pathname || "/";
+  const provider = new GoogleAuthProvider();
 
   const validateForm = async (e: any) => {
     e.preventDefault();
@@ -27,6 +29,17 @@ export const SignupForm = () => {
       }
     }
   };
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        toast.success(`Welcome ${result.user.email}!`);
+        localStorage.setItem("token", JSON.stringify(result.user.uid));
+        navigate(from);
+      })
+      .catch((e) => toast.error(`${e}!`));
+  };
+
   return (
     <>
       <form
@@ -115,6 +128,8 @@ export const SignupForm = () => {
         <button type="submit" className="btn primary-btn w-95p m-1">
           <span>SIGN UP</span>
         </button>
+        <span>OR</span>
+        <GoogleButton onClick={signInWithGoogle} />
       </form>
       <p className="m-b-2">
         Already a member?{" "}
