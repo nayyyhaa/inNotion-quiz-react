@@ -1,15 +1,13 @@
-// import { useAuth } from "contexts/AuthContext";
-// import { useLogin } from "custom-hooks";
-
 import { auth } from "config/firebase-config";
 import { useUser } from "contexts";
 import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
 export const ProfilePage = () => {
   const {
     userData: { user },
   }: any = useUser();
-  // const { logoutHandler } = useLogin();
+
   return (
     <>
       <main className="profile-content form-content full-wd grid-ctr m-auto p-v-5">
@@ -31,7 +29,13 @@ export const ProfilePage = () => {
               <strong className="m-r-1">Email:</strong>
               {user?.email}
             </li>
-            <button className="btn primary-btn centered-text w-95p m-h-1" onClick={() => signOut(auth)}>
+            <button
+              className="btn primary-btn centered-text w-95p m-h-1"
+              onClick={() => {
+                signOut(auth);
+                toast.success("Logout successful!");
+              }}
+            >
               <span>Logout</span>
             </button>
           </ul>
