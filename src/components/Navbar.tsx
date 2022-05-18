@@ -31,7 +31,7 @@ export const Navbar = () => {
         <ul className="row-flex no-bullet">
           <li className="dark-mode icon-toggle icon-btn rd-bdr grid-ctr colored-text m-r-3" onClick={toogleTheme}></li>
           <li className="nav-icon-btn icon-btn rd-bdr grid-ctr wt-text m-r-3">
-            <Link to="/" className="grid-ctr">
+            <Link to="/profile" className="grid-ctr">
               <FaUser />
               <span className="nav-icon-text h6 cursor wt-text">Profile</span>
             </Link>

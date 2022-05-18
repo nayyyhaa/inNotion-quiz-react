@@ -24,7 +24,7 @@
 }
 
 .card-header-text {
-    padding: 2rem 2rem 0 2rem;
+  padding: 2rem 2rem 0 2rem;
 }
 
 .games-grid {
@@ -42,6 +42,18 @@
 
 .m-b-2 {
   margin-bottom: 2rem;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}
+
+.form-validated .eye-icon {
+    top: 38%;
 }
 
 @media screen and (max-width: 400px) {
