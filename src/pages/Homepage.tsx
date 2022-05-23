@@ -21,7 +21,7 @@ export const Homepage = () => {
             <span className="circle"></span>Our favourite quizes
           </h2>
           <div className="container games-grid grid-resp-col w-80p p-v-2">
-            {quizData?.map((card) => (
+            {quizData?.slice(0,3)?.map((card) => (
               <QuizCard key={card._id} card={card} />
             ))}
           </div>

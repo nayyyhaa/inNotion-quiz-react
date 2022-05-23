@@ -16,9 +16,17 @@ export const ResultPage = () => {
         <span className="circle"></span>What is Mindfulness?
       </h2>
       <h3 className="h2 m-v-2">Final Score: {totalScore}/10</h3>
+      {totalScore >= 7 ? (
+        <h4 className="h3 green-text m-v-2">Score is &gt;70%, You passed!! 🥳</h4>
+      ) : (
+        <h4 className="h3 red-text m-v-2">Score is &lt;70%, Better try again! 🥺</h4>
+      )}
       <div className="form-card w-50rm col-flex">
         {currentQuiz?.questions?.map((el, idx) => (
-          <ul key={idx} className="card question-card left-text no-bullet row-flex text-wrap box-shd w-50rm m-v-2 p-h-2 p-v-4">
+          <ul
+            key={idx}
+            className="card question-card left-text no-bullet row-flex text-wrap box-shd w-50rm m-v-2 p-h-2 p-v-4"
+          >
             <li className="questions-heading w-95p m-b-1 row-flex">
               <p className="sub-heading">Question: {idx + 1}</p>
               <p className="sub-heading">

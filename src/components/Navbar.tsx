@@ -15,18 +15,6 @@ export const Navbar = () => {
             in.notion <span className="text-shd">Quiz</span>
           </h3>
         </Link>
-        <ul className={`nav-items row-flex no-bullet ${openNav ? "show-nav" : ""}`}>
-          <li className="btn nav-link-btn h3 m-v-2 m-r-3">
-            <Link to="/" onClick={() => setOpenNav(false)}>
-              Leaderboard
-            </Link>
-          </li>
-          <li className="btn nav-link-btn h3 m-v-2 m-r-3">
-            <Link to="/" onClick={() => setOpenNav(false)}>
-              Rules
-            </Link>
-          </li>
-        </ul>
 
         <ul className="row-flex no-bullet">
           <li className="dark-mode icon-toggle icon-btn rd-bdr grid-ctr colored-text m-r-3" onClick={toogleTheme}></li>

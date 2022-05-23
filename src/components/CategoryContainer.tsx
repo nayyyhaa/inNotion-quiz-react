@@ -1,4 +1,3 @@
-import { QuizDataCategory } from "models/models";
 import { Link } from "react-router-dom";
 import { BsCaretRightFill } from "react-icons/bs";
 
