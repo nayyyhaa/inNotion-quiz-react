@@ -1,6 +1,6 @@
 <div align="center">
   <img src="src/toolkit/assets/self-love.png" height="100" width="100" alt="logo"/>
-  <h1><a href="https://innotion-watch.netlify.app/">inNotion Quiz</a> - Self Care Quiz App</h1>
+  <h1><a href="https://innotion-quiz.netlify.app/">inNotion Quiz</a> - Self Care Quiz App</h1>
     <p>Quiz application to check your knowledge on your self-care journey with topics like meditation, productivity, mindfullness, etc!</p>
  </div>
 
