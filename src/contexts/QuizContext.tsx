@@ -1,26 +1,33 @@
+import { db } from "config/firebase-config";
+import { doc, onSnapshot } from "firebase/firestore";
 import { QuizCardData } from "models/models";
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { quizData } from "toolkit/data/quizData";
+import { useUser } from "./UserContext";
 
 interface QuizType {
   quiz: QuizCardData[];
   userAnswer: { [key: number]: any };
+  scoreData: { [key: string]: any }[];
 }
 
 interface QuizContextState {
   quizData: QuizType;
   setUserAnswer: (arg0: number, arg1: number) => void;
+  clearScores: () => void;
 }
 
 const contextDefaultValues: QuizContextState = {
-  quizData: { quiz: quizData, userAnswer: {} },
+  quizData: { quiz: quizData, userAnswer: {}, scoreData: [] },
   setUserAnswer: () => {},
+  clearScores: () => {},
 };
 
 const QuizContext = createContext<QuizContextState>(contextDefaultValues);
 
 const QuizProvider = ({ children }: any) => {
   const [quizData, setQuizContent] = useState(contextDefaultValues.quizData);
+  const { userData } = useUser();
 
   const setUserAnswer = (questionIdx: number, idx: number) =>
     idx > -1
@@ -36,7 +43,30 @@ const QuizProvider = ({ children }: any) => {
           userAnswer: {},
         }));
 
-  return <QuizContext.Provider value={{ quizData, setUserAnswer }}>{children}</QuizContext.Provider>;
+  const clearScores = () => {
+    setQuizContent((prev: any) => ({
+      ...prev,
+      scoreData: [],
+    }));
+  };
+
+  useEffect(() => {
+    if (userData.user.uid) {
+      const resultRef = doc(db, "scores", userData.user.uid);
+      const unsubscribe = onSnapshot(resultRef, (scores) => {
+        if (scores.exists())
+          setQuizContent((prev: any) => ({
+            ...prev,
+            scoreData: scores.data() ? [...scores.data().scores] : [],
+          }));
+      });
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [userData.user.uid]);
+
+  return <QuizContext.Provider value={{ quizData, setUserAnswer, clearScores }}>{children}</QuizContext.Provider>;
 };
 
 const useQuiz = () => useContext(QuizContext);

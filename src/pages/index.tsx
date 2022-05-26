@@ -6,3 +6,4 @@ export { Authorisation } from "./Authorisation";
 export { PageNotFound } from "./PageNotFound";
 export { ProfilePage } from "./ProfilePage";
 export { CategoriesPage } from "./CategoriesPage";
+export { ScoresPage } from "./ScoresPage";

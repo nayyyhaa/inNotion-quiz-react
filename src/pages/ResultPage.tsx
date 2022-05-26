@@ -1,20 +1,41 @@
-import { useQuiz } from "contexts";
+import { db } from "config/firebase-config";
+import { useQuiz, useUser } from "contexts";
+import { doc, setDoc } from "firebase/firestore";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export const ResultPage = () => {
   const {
-    quizData: { quiz, userAnswer },
+    quizData: { quiz, userAnswer, scoreData },
   } = useQuiz();
   const { id } = useParams();
   const currentQuiz = quiz.find(({ _id }) => _id === id);
   const noOfCorrectAns: number = currentQuiz?.questions?.filter((el, idx) => userAnswer[idx] === el.answer).length || 0;
   const totalScore: number = noOfCorrectAns * 2 - (5 - noOfCorrectAns);
-  
+  const { userData } = useUser();
+
+  useEffect(() => {
+    const resultRef = doc(db, "scores", userData?.user?.uid);
+    (async function () {
+      try {
+        await setDoc(resultRef, {
+          scores: scoreData
+            ? [...scoreData, { title: currentQuiz?.title, score: totalScore, _id: id, date: new Date().toDateString() }]
+            : [{ title: currentQuiz?.title, score: totalScore, _id: id, date: new Date().toDateString() }],
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  },[]);
+
   return (
     <main className="form-content full-wd grid-ctr m-auto p-h-2 p-v-5">
       <h2 className="title colored-text m-v-1">
-        <span className="circle"></span>What is Mindfulness?
+        <span className="circle"></span>
+        {currentQuiz?.title}
       </h2>
+      {/* <button onClick={add}>AD</button> */}
       <h3 className="h2 m-v-2">Final Score: {totalScore}/10</h3>
       {totalScore >= 7 ? (
         <h4 className="h3 green-text m-v-2">Score is &gt;70%, You passed!! 🥳</h4>
