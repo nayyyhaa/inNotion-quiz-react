@@ -31,22 +31,30 @@ export const ScoresPage = () => {
           <span className="circle"></span>
           Scoreboard
         </h2>
-        <button className="btn primary-btn" onClick={clearScoresHandler}>
+        <button className="btn primary-btn m-v-2" onClick={clearScoresHandler}>
           Clear Scores
         </button>
       </div>
       {scoreData?.length > 0 ? (
         <>
           <div className="option option-header row-flex no-wrap score-bar">
-            <p className="w-40p">Quiz Name</p>
-            <p className="w-20p">Date</p>
-            <p className="w-20p">Score</p>
-            <p className="w-10p">Action Button</p>
+            <p className="w-40p">
+              <strong>Quiz Name</strong>
+            </p>
+            <p className="date-field w-20p">
+              <strong>Date</strong>
+            </p>
+            <p className="w-20p">
+              <strong>Score</strong>
+            </p>
+            <p className="w-10p">
+              <strong>Action Button</strong>
+            </p>
           </div>
           {scoreData?.map(({ title, score, date, _id }, idx) => (
             <div key={idx} className="option row-flex no-wrap score-bar">
               <p className="w-40p">{title}</p>
-              <p className="w-20p">{formatDate(date)}</p>
+              <p className="date-field w-20p">{formatDate(date)}</p>
               <p className="w-20p">{score}</p>
               <Link to={`/rules/${_id}`}>
                 <button className="btn primary-btn w-10p">

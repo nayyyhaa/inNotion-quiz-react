@@ -133,7 +133,7 @@ export const SignupForm = () => {
         <span>OR</span>
         <GoogleButton onClick={signInWithGoogle} />
       </form>
-      <p className="m-b-2">
+      <p className="m-v-2">
         Already a member?{" "}
         <Link to="/login" className="cursor colored-text">
           Login here

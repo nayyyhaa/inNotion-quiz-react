@@ -31,16 +31,16 @@ export const ResultPage = () => {
 
   return (
     <main className="form-content full-wd grid-ctr m-auto p-h-2 p-v-5">
-      <h2 className="title colored-text m-v-1">
+      <h2 className="title centered-text colored-text m-v-1">
         <span className="circle"></span>
         {currentQuiz?.title}
       </h2>
       {/* <button onClick={add}>AD</button> */}
-      <h3 className="h2 m-v-2">Final Score: {totalScore}/10</h3>
+      <h3 className="h2 centered-text m-v-2">Final Score: {totalScore}/10</h3>
       {totalScore >= 7 ? (
-        <h4 className="h3 green-text m-v-2">Score is &gt;70%, You passed!! 🥳</h4>
+        <h4 className="h3 centered-text green-text m-v-2">Score is &gt;70%, You passed!! 🥳</h4>
       ) : (
-        <h4 className="h3 red-text m-v-2">Score is &lt;70%, Better try again! 🥺</h4>
+        <h4 className="h3 centered-text red-text m-v-2">Score is &lt;70%, Better try again! 🥺</h4>
       )}
       <div className="form-card w-50rm col-flex">
         {currentQuiz?.questions?.map((el, idx) => (

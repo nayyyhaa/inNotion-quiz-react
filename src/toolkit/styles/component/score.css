@@ -6,6 +6,10 @@
   background: var(--COLOR-PRIMARY-LIGHT);
 }
 
+.option p {
+  padding: 0 0.5rem;
+}
+
 .dark .option-header {
   background: var(--COLOR-PRIMARY-XXXDARK);
 }
@@ -15,5 +19,11 @@
   min-height: 6rem;
   border-radius: 1rem;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .date-field {
+    display: none;
+  }
 }
