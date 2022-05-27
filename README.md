@@ -16,7 +16,7 @@
 - Rules Page
 - Question Page
 - Result Page
-- Liked Videos Page
+- Scores Page
 - Authentication (Login, Signup and Logout) Pages
 - Page not found(404 page)
 
@@ -27,6 +27,7 @@ Responsive screens with:
 - **Rules Page**, consists of rules for particular game being played.
 - **Question Page** - List of MCQ based question for user to choose from.
 - **Result Page** - Answers of the following quiz mentioned along with total score.
+- **Scores Page** - Scores of the played game will be stored here for user.
 
 ## Technologies & Concepts used
 
@@ -35,6 +36,7 @@ Responsive screens with:
 - Firebase for Authentication
 - React-router-dom
 - React-toastify
+- React-loader-spinner
 - inNotion UI library for styled components.
 To know about the styled components, their variations, read the [inNotion UI Documentation](https://innotion-ui.netlify.app/).
 - Git For Version Control
