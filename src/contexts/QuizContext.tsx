@@ -15,12 +15,14 @@ interface QuizContextState {
   quizData: QuizType;
   setUserAnswer: (arg0: number, arg1: number) => void;
   clearScores: () => void;
+  isLoading: boolean;
 }
 
 const contextDefaultValues: QuizContextState = {
   quizData: { quiz: quizData, userAnswer: {}, scoreData: [] },
   setUserAnswer: () => {},
   clearScores: () => {},
+  isLoading: true,
 };
 
 const QuizContext = createContext<QuizContextState>(contextDefaultValues);
@@ -28,6 +30,7 @@ const QuizContext = createContext<QuizContextState>(contextDefaultValues);
 const QuizProvider = ({ children }: any) => {
   const [quizData, setQuizContent] = useState(contextDefaultValues.quizData);
   const { userData } = useUser();
+  const [isLoading, setIsLoading] = useState(contextDefaultValues.isLoading);
 
   const setUserAnswer = (questionIdx: number, idx: number) =>
     idx > -1
@@ -59,6 +62,7 @@ const QuizProvider = ({ children }: any) => {
             ...prev,
             scoreData: scores.data() ? [...scores.data().scores] : [],
           }));
+          setIsLoading(false)
       });
       return () => {
         unsubscribe();
@@ -66,7 +70,9 @@ const QuizProvider = ({ children }: any) => {
     }
   }, [userData.user.uid]);
 
-  return <QuizContext.Provider value={{ quizData, setUserAnswer, clearScores }}>{children}</QuizContext.Provider>;
+  return (
+    <QuizContext.Provider value={{ quizData, setUserAnswer, clearScores, isLoading }}>{children}</QuizContext.Provider>
+  );
 };
 
 const useQuiz = () => useContext(QuizContext);
