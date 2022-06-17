@@ -20,7 +20,7 @@ export const Homepage = () => {
           <h2 className="title colored-text h1 m-v-2">
             <span className="circle"></span>Our favourite quizes
           </h2>
-          <div className="container games-grid grid-resp-col w-80p p-v-2">
+          <div className="container games-grid grid-resp-col w-80p m-auto p-v-2">
             {quizData?.slice(0,3)?.map((card) => (
               <QuizCard key={card._id} card={card} />
             ))}

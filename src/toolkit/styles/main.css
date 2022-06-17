@@ -3,6 +3,7 @@
 @import url("component/browse-quiz.css");
 @import url("component/login.css");
 @import url("component/quiz-content.css");
+@import url("component/score.css");
 
 .card-btn:hover,
 .card-icon-btn:hover {
@@ -53,7 +54,7 @@
 }
 
 .form-validated .eye-icon {
-    top: 38%;
+  top: 38%;
 }
 
 @media screen and (max-width: 400px) {

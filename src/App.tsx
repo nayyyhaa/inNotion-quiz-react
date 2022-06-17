@@ -14,6 +14,7 @@ import {
   Authorisation,
   CategoriesPage,
   PageNotFound,
+  ScoresPage,
 } from "./pages";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/questions/:id" element={<QuestionPage />} />
           <Route path="/result/:id" element={<ResultPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/scores" element={<ScoresPage />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

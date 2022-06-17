@@ -4,7 +4,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 import { useAuth } from "./AuthContext";
 
 interface UserType {
-  user: Object;
+  user: { [key: string]: any };
   isDark: Boolean;
 }
 
