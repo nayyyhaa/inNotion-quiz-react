@@ -27,7 +27,7 @@ export const ResultPage = () => {
         console.error(err);
       }
     })();
-  },[]);
+  }, []);
 
   return (
     <main className="form-content full-wd grid-ctr m-auto p-h-2 p-v-5">
@@ -35,7 +35,6 @@ export const ResultPage = () => {
         <span className="circle"></span>
         {currentQuiz?.title}
       </h2>
-      {/* <button onClick={add}>AD</button> */}
       <h3 className="h2 centered-text m-v-2">Final Score: {totalScore}/10</h3>
       {totalScore >= 7 ? (
         <h4 className="h3 centered-text green-text m-v-2">Score is &gt;70%, You passed!! 🥳</h4>
