@@ -14,6 +14,8 @@ export const ScoresPage = () => {
   } = useQuiz();
   const { userData } = useUser();
 
+  console.log(scoreData, "s");
+
   const clearScoresHandler = async () => {
     const resultRef = doc(db, "scores", userData?.user?.uid);
     try {
